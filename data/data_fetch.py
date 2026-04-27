@@ -4,8 +4,6 @@ import pandas as pd
 import requests
 import dotenv
 
-
-
 dotenv.load_dotenv()
 
 API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
