@@ -28,11 +28,13 @@ def fetch_raw_data_from_api():
     stock_dataframe.reset_index(inplace=True)
     stock_dataframe.rename(columns={'index':'Date'}, inplace=True)
 
-    stock_dataframe.to_csv(os.path.join("data", "../raw_data/OHLCV.csv"), index=False)
+    stock_dataframe['Date'] = pd.to_datetime(stock_dataframe['Date'])
+
+    stock_dataframe.to_csv(os.path.join("data", "../raw_data/Alpha_vantage_OHLCV.csv"), index=False)
 
     return stock_dataframe
 
 def get_clean_data_from_csv():
-    stock_dataframe = pd.read_csv(os.path.join("data", "../raw_data/OHLCV.csv"))
+    stock_dataframe = pd.read_csv(os.path.join("data", "../raw_data/Alpha_vantage_OHLCV.csv"))
 
     return stock_dataframe
